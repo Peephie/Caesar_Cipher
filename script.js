@@ -22,10 +22,6 @@ function caesarCipher(word, key, language, mode) {
     return caesarShift(word, key + 26);
   }
 
-  // if (mode = 'encrypt') {
-  //   key = -key;
-  // }
-
   const wordArray = word.split('');
   let output = '';
   let alfabet;
@@ -50,11 +46,16 @@ function caesarCipher(word, key, language, mode) {
           upOrLow = 1;
         }
     
-        if (+wordArray[i]) {
+        if (+wordArray[i] === 0 || +wordArray[i]) {
           let numWord = +wordArray[i];
-          let positon = key % 10;
-    
-          output += `${(numWord + positon) % 10}`;
+          let numKey = key % 10;
+
+          if (numWord - numKey < 0) {
+            output += `${10 - (numKey - numWord)}`;
+            continue;
+          }
+          
+          output += `${(numWord - numKey) % 10}`;
           continue;
         }
     
@@ -85,11 +86,11 @@ function caesarCipher(word, key, language, mode) {
           upOrLow = 1;
         }
     
-        if (+wordArray[i]) {
+        if (+wordArray[i] === 0 || +wordArray[i]) {
           let numWord = +wordArray[i];
-          let positon = key % 10;
+          let numKey = key % 10;
     
-          output += `${(numWord + positon) % 10}`;
+          output += `${(numWord + numKey) % 10}`;
           continue;
         }
     
@@ -100,7 +101,7 @@ function caesarCipher(word, key, language, mode) {
     
           if (wordArray[i] === alfabet[upOrLow][ii]) {
             if ((ii + key) >= alfabet[upOrLow].length) {
-              output += alfabet[upOrLow][(ii + key) % alfabet.length];
+              output += alfabet[upOrLow][(ii + key) % alfabet[upOrLow].length];
               continue;
             }
     
@@ -129,7 +130,3 @@ function clearForm() {
   document.getElementById('encrypted').value = '';
   document.getElementById('decrypted').value = '';
 }
-
-// let input = 'абвГдеє';
-// const key = 1;
-// caesarCipher(input, key);

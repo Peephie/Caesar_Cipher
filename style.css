@@ -3,6 +3,7 @@
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 18px;
   color: #fff;
+  overflow: hidden;
 }
 
 body, h1, h2, p, input {
@@ -32,14 +33,12 @@ body, h1, h2, p, input {
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px auto;
 }
 .nav__title {
   margin: 0;
-  background-image: linear-gradient(90deg, #64B6AC 0%, #E3C5BB 100%);
+  text-align: center;
+  background-image: linear-gradient(30deg, #64B6AC 30%, #E3C5BB 70%);
   background-size: 100%;
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -106,6 +105,7 @@ body, h1, h2, p, input {
 .main__title:last-child {
   grid-column: 5/7;
 }
+
 .form__infographic {
   margin-bottom: 60px;
 }
@@ -224,7 +224,7 @@ body, h1, h2, p, input {
   box-sizing: border-box;
   width: 200px;
   height: 44px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   border: 3px solid #E3C5BB;
   background-color: #151515;
   color: #E3C5BB;
@@ -238,6 +238,19 @@ body, h1, h2, p, input {
 .form__button--submit {
   border-color: #64B6AC;
   color: #64B6AC;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #151515;
+  padding: 0 50px 10px;
+}
+.footer__item {
+  width: max-content;
+  font-size: 14px;
+  line-height: 24px;
+  color: #CCC;
 }
 
 /*# sourceMappingURL=style.css.map */
